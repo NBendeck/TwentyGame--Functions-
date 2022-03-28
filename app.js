@@ -23,18 +23,44 @@ function ranNum() {
 // User function
 
 function user(a) {
+
+    var u = 0
+
+    alert(`Your turn`)
+
     do {
 
+        u = u + a
 
-        var userPrompt = prompt(`Would you like to roll again?`)
+        alert(`You rolled ${a}, new score: ${u}`)
 
-    } while (userPrompt == "1")
+        var userPrompt = prompt(`Would you like to roll again? type "1" to stop`)
+
+    } while (userPrompt != "1")
+
+    return u
 }
 
 // ^
 
 // Computer function
 
+function com(b) {
+
+    var c = 0
+
+    alert(`Computer turn`)
+
+    do {
+
+        c = c + b
+
+        alert(`Computer rolled ${b}, computer score: ${c}`)
+
+    } while (c < 16)
+
+    return c
+}
 
 
 // ^
@@ -47,9 +73,15 @@ function user(a) {
 
 // Game function
 
+function finalScore(a, b) {
+    alert(`Your score: ${a} Computer score: ${b}`)
+}
+
+
 function program() {
 
     greeting(askName())
+    com(ranNum())
     user(ranNum())
 
     var pa = prompt("play again? type `1`")
@@ -58,9 +90,11 @@ function program() {
         program()
     } else {
         alert(`Thank you for playing!`)
-        finalScore()
+        finalScore(user(), com())
     }
 
 }
 
 // ^
+
+program()

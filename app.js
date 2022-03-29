@@ -67,7 +67,19 @@ function com(b) {
 
 // Comparing function
 
+    function compare(a, b) {
+        if (a <= 20) {
 
+        } else if (b <= 20) {
+
+        } else if (a > 20) {
+            alert(`Computer got over 20 with ${a}... Game over`)
+        } else if (b > 20) {
+            alert(`You got over 20 with ${a}... Game over`)
+        } else {
+            alert('error')
+        }
+    }
 
 // ^
 

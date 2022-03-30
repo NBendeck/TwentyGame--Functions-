@@ -22,13 +22,15 @@ function ranNum() {
 
 // User function
 
-function user(a) {
+function user() {
 
     var u = 0
+    
 
     alert(`Your turn`)
 
     do {
+        var a = ranNum()
 
         u = u + a
 
@@ -45,13 +47,15 @@ function user(a) {
 
 // Computer function
 
-function com(b) {
+function com() {
 
+    
     var c = 0
 
     alert(`Computer turn`)
 
     do {
+        var b = ranNum()
 
         c = c + b
 
@@ -67,19 +71,35 @@ function com(b) {
 
 // Comparing function
 
-    function compare(a, b) {
-        if (a <= 20) {
-
-        } else if (b <= 20) {
-
-        } else if (a > 20) {
-            alert(`Computer got over 20 with ${a}... Game over`)
-        } else if (b > 20) {
-            alert(`You got over 20 with ${a}... Game over`)
-        } else {
-            alert('error')
-        }
+function compare(a, b) {
+    if (a <= 20, b <= 20) {
+        
+    if (a > b) {
+        cs = cs + 1
+        alert(`The computer beat you.. computer current score: ${cs} your current score: ${us}`)
+    } else if (b > a) {
+        us = us + 1
+        alert(`You won! computer current score: ${cs} your current score: ${us}`)
+    } else if (b == a) {
+        cs = cs + 1
+        us = us + 1
+        alert(`draw!!!?!?!? computer current score: ${cs} your current score: ${us} `)
+    } else {
+        alert('error')
     }
+    
+    
+    
+    } else if (a > 20) {
+        us = us + 1
+        alert(`Computer got over 20... Game over. computer current score: ${cs} your current score: ${us}`)
+    } else if (b > 20) {
+        cs = cs + 1
+        alert(`You got over 20... Game over. computer current score: ${cs} your current score: ${us}`)
+    } else {
+        alert('error')
+    }
+}
 
 // ^
 
@@ -93,20 +113,24 @@ function finalScore(a, b) {
 function program() {
 
     greeting(askName())
-    com(ranNum())
-    user(ranNum())
+    var x = user()
+    var y = com()
+    compare(x, y)
 
-    var pa = prompt("play again? type `1`")
+    var pa = prompt("play again? type `1` to play again!")
 
     if (pa == "1") {
         program()
     } else {
         alert(`Thank you for playing!`)
-        finalScore(user(), com())
+        finalScore(us, cs)
     }
 
 }
 
 // ^
+
+var cs = 0
+var us = 0
 
 program()

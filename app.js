@@ -34,11 +34,12 @@ function user() {
 
         u = u + a
 
+        var userPrompt = prompt(`Would you like to roll? type "1" to stop`)
+
         alert(`You rolled ${a}, new score: ${u}`)
 
-        var userPrompt = prompt(`Would you like to roll again? type "1" to stop`)
 
-    } while (userPrompt != "1")
+    } while ((userPrompt != "1") && (u < 20))
 
     return u
 }
@@ -74,10 +75,10 @@ function com() {
 function compare(a, b) {
     if (a <= 20, b <= 20) {
         
-    if (a > b) {
+    if (b > a) {
         cs = cs + 1
         alert(`The computer beat you.. computer current score: ${cs} your current score: ${us}`)
-    } else if (b > a) {
+    } else if (a > b) {
         us = us + 1
         alert(`You won! computer current score: ${cs} your current score: ${us}`)
     } else if (b == a) {
@@ -90,11 +91,11 @@ function compare(a, b) {
     
     
     
-    } else if (a > 20) {
-        us = us + 1
-        alert(`Computer got over 20... Game over. computer current score: ${cs} your current score: ${us}`)
     } else if (b > 20) {
         cs = cs + 1
+        alert(`Computer got over 20... Game over. computer current score: ${cs} your current score: ${us}`)
+    } else if (a > 20) {
+        us = us + 1
         alert(`You got over 20... Game over. computer current score: ${cs} your current score: ${us}`)
     } else {
         alert('error')
@@ -112,7 +113,6 @@ function finalScore(a, b) {
 
 function program() {
 
-    greeting(askName())
     var x = user()
     var y = com()
     compare(x, y)
@@ -132,5 +132,7 @@ function program() {
 
 var cs = 0
 var us = 0
+
+greeting(askName())
 
 program()
